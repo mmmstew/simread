@@ -238,16 +238,16 @@ int main (int argc, char *argv[])
     }
 
     if (DisplayFileSize(fp))
-        return 1;
+        goto close;
     if (DisplayHeader(fp))
-        return 1;
+        goto close;
     if (DisplayRecords(fp))
-        return 1;
+        goto close;
     if (DisplayCalculatedChecksum(fp))
-        return 1;
+        goto close;
 
+close:
     fclose(fp);
-
     return 0;
 
 
